@@ -10,8 +10,8 @@
     "postinstall": "husky install",
     "stub-dev-deployments": "sh ./mock_all_dev.sh",
     "clean": "git clean -fdx -e \".env*\"",
-    "start": "HARDHAT_FORK=mainnet yarn workspaces foreach -pvi --include '{@goldfinch-eng/protocol,@goldfinch-eng/server,@goldfinch-eng/functions}' run start",
-    "start:local": "yarn workspace @goldfinch-eng/protocol run generate-merkle-root:local && REACT_APP_GCLOUD_FUNCTIONS_URL=http://localhost:5001/goldfinch-frontends-dev/us-central1 BACKER_MERKLE_DISTRIBUTOR_INFO_PATH=./blockchain_scripts/merkle/backerMerkleDistributor/merkleDistributorInfo.dev.json BACKER_MERKLE_DIRECT_DISTRIBUTOR_INFO_PATH=./blockchain_scripts/merkle/backerMerkleDirectDistributor/merkleDirectDistributorInfo.dev.json MERKLE_DISTRIBUTOR_INFO_PATH=./blockchain_scripts/merkle/merkleDistributor/merkleDistributorInfo.dev.json MERKLE_DIRECT_DISTRIBUTOR_INFO_PATH=./blockchain_scripts/merkle/merkleDirectDistributor/merkleDirectDistributorInfo.dev.json CHAIN_IDENTIFIER=http://localhost:8545 LOCAL=yes yarn workspaces foreach -pvi --include '{@goldfinch-eng/protocol,@goldfinch-eng/server,@goldfinch-eng/functions}' run start",
+    "start": "HARDHAT_FORK=mainnet yarn workspaces foreach --all -pvi --include '{@goldfinch-eng/protocol,@goldfinch-eng/server,@goldfinch-eng/functions}' run start",
+    "start:local": "yarn workspace @goldfinch-eng/protocol run generate-merkle-root:local && REACT_APP_GCLOUD_FUNCTIONS_URL=http://localhost:5001/goldfinch-frontends-dev/us-central1 BACKER_MERKLE_DISTRIBUTOR_INFO_PATH=./blockchain_scripts/merkle/backerMerkleDistributor/merkleDistributorInfo.dev.json BACKER_MERKLE_DIRECT_DISTRIBUTOR_INFO_PATH=./blockchain_scripts/merkle/backerMerkleDirectDistributor/merkleDirectDistributorInfo.dev.json MERKLE_DISTRIBUTOR_INFO_PATH=./blockchain_scripts/merkle/merkleDistributor/merkleDistributorInfo.dev.json MERKLE_DIRECT_DISTRIBUTOR_INFO_PATH=./blockchain_scripts/merkle/merkleDirectDistributor/merkleDirectDistributorInfo.dev.json CHAIN_IDENTIFIER=http://localhost:8545 LOCAL=yes yarn workspaces foreach --all -pvi --include '{@goldfinch-eng/protocol,@goldfinch-eng/server,@goldfinch-eng/functions}' run start",
     "test": "NODE_OPTIONS=--unhandled-rejections=strict yarn workspaces foreach run test",
     "test:protocol": "yarn workspace @goldfinch-eng/protocol run test",
     "test:autotasks": "yarn workspace @goldfinch-eng/autotasks run test",
@@ -41,7 +41,8 @@
     "@types/react": "17.0.39",
     "@types/react-dom": "17.0.6",
     "@float-capital/float-subgraph-uncrashable": "0.0.0-alpha.6",
-    "hardhat-deploy@^0.11.14": "patch:hardhat-deploy@npm%3A0.11.22#./.yarn/patches/hardhat-deploy-npm-0.11.22-0e28661e12.patch"
+    "hardhat-deploy@^0.11.14": "patch:hardhat-deploy@npm%3A0.11.22#./.yarn/patches/hardhat-deploy-npm-0.11.22-0e28661e12.patch",
+    "concat-stream": "github:maxogden/concat-stream"
   },
-  "packageManager": "yarn@3.3.0"
+  "packageManager": "yarn@4.0.1"
 }
